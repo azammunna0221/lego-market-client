@@ -26,17 +26,9 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><a>Home</a></li>
-                            <li tabIndex={0}>
-                                <a className="justify-between">
-                                    Toys
-                                    <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                                </a>
-                                <ul className="p-2">
-                                    <li><a>All Toys</a></li>
-                                    <li><a>My Toys</a></li>
-                                    <li><a>Add A Toys</a></li>
-                                </ul>
-                            </li>
+                            <li><a>All Toys</a></li>
+                            <li><a>My Toys</a></li>
+                            <li><a>Add A Toys</a></li>
                             <li><a>Blog</a></li>
                         </ul>
                     </div>
@@ -47,14 +39,14 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to="/">Home</Link></li>
                         {
-                            user &&
+                            //user &&
                             <>
-                                <li><a>All Toys</a></li>
-                                <li><a>My Toys</a></li>
-                                <li><a>Add A Toys</a></li>
+                                <li><Link to="/allToys">All Toys</Link></li>
+                                <li><Link>My Toys</Link></li>
+                                <li><Link>Add A Toys</Link></li>
                             </>
                         }
-                        <li><a>Blogs</a></li>
+                        <li><Link>Blogs</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
