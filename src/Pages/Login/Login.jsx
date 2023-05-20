@@ -9,7 +9,9 @@ const Login = () => {
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location);
+    //console.log(location);
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -24,7 +26,7 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             form.reset();
-            navigate('/');
+            navigate(from);
         })
         .catch(error => {
             console.log(error.message);
