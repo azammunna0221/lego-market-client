@@ -1,8 +1,19 @@
-import user from "../../../images/user.jpg"
+import userPic from "../../../images/user.jpg"
 import logo from "../../../images/Lego.png"
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
+    const {user, logOut} = useContext(AuthContext);
+
+    const handleLogOut =()=>{
+        logOut()
+        .then(result => {
+            console.log(result);
+        })
+        .catch(error => console.log(error.message));
+    }
 
 
     return (
@@ -50,10 +61,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login"><button className="btn btn-outline mr-5">Login</button></Link>
+                    {
+                        user?
+                        <button onClick={handleLogOut} className="btn btn-outline mr-5">Logout</button> :
+                        <Link to="/login"><button className="btn btn-outline mr-5">Login</button></Link>
+                    }
                     <div className="avatar online">
                         <div className=" w-10 rounded-full">
-                            <img src={user} />
+                            { user && <img src={userPic} />}
                         </div>
                     </div>
                 </div>
