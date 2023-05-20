@@ -5,14 +5,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    const handleLogOut =()=>{
+    const handleLogOut = () => {
         logOut()
-        .then(result => {
-            console.log(result);
-        })
-        .catch(error => console.log(error.message));
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => console.log(error.message));
     }
 
 
@@ -46,31 +46,30 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to="/">Home</Link></li>
-                        <li tabIndex={0}>
-                            <a>
-                                Parent
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                            </a>
-                            <ul className="p-2">
+                        {
+                            user &&
+                            <>
                                 <li><a>All Toys</a></li>
                                 <li><a>My Toys</a></li>
                                 <li><a>Add A Toys</a></li>
-                            </ul>
-                        </li>
+                            </>
+                        }
                         <li><a>Blogs</a></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {
-                        user?
-                        <button onClick={handleLogOut} className="btn btn-outline mr-5">Logout</button> :
-                        <Link to="/login"><button className="btn btn-outline mr-5">Login</button></Link>
+                        user ?
+                            <button onClick={handleLogOut} className="btn btn-outline mr-5">Logout</button> :
+                            <Link to="/login"><button className="btn btn-outline mr-5">Login</button></Link>
                     }
-                    <div className="avatar online">
-                        <div className=" w-10 rounded-full">
-                            { user && <img src={userPic} />}
-                        </div>
-                    </div>
+                    {
+                        user &&
+                        <div className="avatar online">
+                            <div className=" w-10 rounded-full">
+                                <img src={userPic} />
+                            </div>
+                        </div>}
                 </div>
             </div>
         </div>
