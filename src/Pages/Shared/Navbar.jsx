@@ -1,4 +1,3 @@
-import userPic from "../../../images/user.jpg"
 import logo from "../../../images/Lego.png"
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -59,7 +58,7 @@ const Navbar = () => {
                         user &&
                         <div className="avatar online">
                             <div className=" w-10 rounded-full">
-                                <img src={userPic} />
+                                <img src={user.photoURL} />
                             </div>
                         </div>}
                 </div>

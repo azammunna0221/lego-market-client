@@ -6,7 +6,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
 
     const [error, setError] = useState(null);
-    const { login } = useContext(AuthContext);
+    const { login, googleUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     //console.log(location);
@@ -32,7 +32,17 @@ const Login = () => {
             console.log(error.message);
             setError(error.message);
         })
-
+    }
+    const handleGoogleLogin = () =>{
+        googleUser()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error =>{
+            console.log(error.message);
+            setError(error.message);
+        })
     }
 
 
@@ -61,6 +71,9 @@ const Login = () => {
                                 </div>
                                 <div className="form-control mt-6">
                                     <button type="submit" className="btn btn-primary">Login</button>
+                                </div>
+                                <div className="form-control mt-6">
+                                    <button onClick={handleGoogleLogin} className="btn btn-primary">Google Login</button>
                                 </div>
                                 <div>
                                     <p>Have No Account? <Link className=" text-blue-500" to="/register">Register</Link> </p>
