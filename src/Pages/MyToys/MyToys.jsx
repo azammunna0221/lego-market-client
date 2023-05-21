@@ -7,7 +7,6 @@ const MyToys = () => {
 
     const clientsLoader = useLoaderData();
     const [clients, setClients] = useState(clientsLoader);
-    console.log(setClients);
     
     const handleDelete = id =>{
         const proceed = confirm("Do you want to remove this item?")
@@ -37,8 +36,9 @@ const MyToys = () => {
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
+                                    <th>Seller Name</th>
+                                    <th>Seller Email</th>
+                                    <th>Toy Name</th>
                                     <th>Picture URL</th>
                                     <th>Price</th>
                                     <th>Ratings</th>

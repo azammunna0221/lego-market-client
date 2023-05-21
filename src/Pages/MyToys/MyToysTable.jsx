@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MyToysTable = ({ client, handleDelete }) => {
 
-    const { _id, name, email, url, price, rating, quantity, description, } = client;
+    const {toy, _id, name, email, url, price, rating, quantity, description, } = client;
 
 
     return (
@@ -12,6 +12,7 @@ const MyToysTable = ({ client, handleDelete }) => {
             <th>{_id}</th>
             <td>{name}</td>
             <td>{email}</td>
+            <td>{toy}</td>
             <td>{url}</td>
             <td>{price}</td>
             <td>{rating}</td>

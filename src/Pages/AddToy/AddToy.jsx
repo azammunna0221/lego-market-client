@@ -9,12 +9,13 @@ const AddToy = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
+        const toy =form.toy.value;
         const url = form.url.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-        const clients = { name, email, url, price, rating, quantity, description };
+        const clients = { name, email, toy, url, price, rating, quantity, description };
         console.log(clients);
 
         fetch("http://localhost:3000/clients", {
@@ -60,6 +61,12 @@ const AddToy = () => {
                                         <span className="label-text">Seller Email</span>
                                     </label>
                                     <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Toy Name</span>
+                                    </label>
+                                    <input type="text" name="toy" placeholder="Name" className="input input-bordered" />
                                 </div>
                                 <div className="form-control mt-6">
                                     <button type="submit" className="btn btn-primary">Submit</button>
