@@ -1,7 +1,7 @@
 import { GrUpdate } from 'react-icons/gr';
 import { ImCross } from 'react-icons/im';
 
-const MyToysTable = ({ client }) => {
+const MyToysTable = ({ client, handleDelete }) => {
 
     const { _id, name, email, url, price, rating, quantity, description, } = client;
 
@@ -18,7 +18,7 @@ const MyToysTable = ({ client }) => {
             <td>{description}</td>
             <td className='flex flex-row gap-4'>
                 <GrUpdate />
-                <ImCross/>
+                <button onClick={() => handleDelete(_id)}><ImCross/></button> 
             </td>
         </tr>
     );

@@ -8,7 +8,26 @@ const MyToys = () => {
     const clientsLoader = useLoaderData();
     const [clients, setClients] = useState(clientsLoader);
     console.log(setClients);
-    //const {_id, name, email, url, price, rating, quantity, description,} = clientsLoader;
+    
+    const handleDelete = id =>{
+        const proceed = confirm("Do you want to remove this item?")
+        if(proceed){
+            fetch(`http://localhost:3000/clients/${id}`,
+            {
+                method: 'DELETE',
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.deletedCount > 0){
+                    alert("Deleted Successfully")
+                    const remaining = clients.filter(client => client._id !== id);
+                    setClients(remaining);
+                }
+            })
+        }
+    }
+
 
     return (
         <div>
@@ -33,6 +52,7 @@ const MyToys = () => {
                                     clients.map( client => <MyToysTable
                                     key = {client._id}
                                     client = {client}
+                                    handleDelete = {handleDelete}
                                     ></MyToysTable>)
                                 }
                             </tbody>
