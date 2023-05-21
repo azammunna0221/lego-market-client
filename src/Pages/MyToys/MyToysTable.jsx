@@ -1,4 +1,5 @@
-
+import { GrUpdate } from 'react-icons/gr';
+import { ImCross } from 'react-icons/im';
 
 const MyToysTable = ({ client }) => {
 
@@ -15,6 +16,10 @@ const MyToysTable = ({ client }) => {
             <td>{rating}</td>
             <td>{quantity}</td>
             <td>{description}</td>
+            <td className='flex flex-row gap-4'>
+                <GrUpdate />
+                <ImCross/>
+            </td>
         </tr>
     );
 };

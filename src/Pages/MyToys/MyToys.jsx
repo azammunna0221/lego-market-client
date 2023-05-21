@@ -14,7 +14,7 @@ const MyToys = () => {
         <div>
             <p className=" text-2xl font-bold">Total clients: {clientsLoader.length}</p>
             <div className="overflow-x-auto">
-                        <table className="table table-compact w-full">
+                        <table className="table table-compact w-full my-12">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -25,6 +25,7 @@ const MyToys = () => {
                                     <th>Ratings</th>
                                     <th>Quantity</th>
                                     <th>Description</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
