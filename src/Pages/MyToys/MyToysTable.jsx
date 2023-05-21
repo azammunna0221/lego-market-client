@@ -1,5 +1,6 @@
 import { GrUpdate } from 'react-icons/gr';
 import { ImCross } from 'react-icons/im';
+import { Link } from 'react-router-dom';
 
 const MyToysTable = ({ client, handleDelete }) => {
 
@@ -17,7 +18,7 @@ const MyToysTable = ({ client, handleDelete }) => {
             <td>{quantity}</td>
             <td>{description}</td>
             <td className='flex flex-row gap-4'>
-                <GrUpdate />
+                <Link to={`/updateToy/${_id}`}><button><GrUpdate /></button></Link>
                 <button onClick={() => handleDelete(_id)}><ImCross/></button> 
             </td>
         </tr>
