@@ -1,9 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 
 const Category = () => {
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleUser = () => {
+        alert("Login First to Continue");
+        navigate('/login');
+    }
+
 
     const [category, setCategory] = useState([]);
     useEffect(() => {
@@ -27,7 +36,11 @@ const Category = () => {
                                 <h2 className="card-title mx-auto">{cat.category}</h2>
                                 <p>If a dog chews shoes whose shoes does he choose?</p>
                                 <div className="card-actions justify-end mx-auto">
-                                    <Link to={`/category/${cat._id}`}><button  className="btn btn-primary">Buy Now</button></Link>
+                                    {
+                                        user?
+                                        <Link to={`/category/${cat._id}`}><button  className="btn btn-primary">Buy Now</button></Link> : 
+                                        <button onClick={handleUser} className="btn btn-primary">Buy Now</button>
+                                    }
                                 </div>
                             </div>
                         </div>
