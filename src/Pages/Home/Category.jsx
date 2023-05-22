@@ -22,11 +22,11 @@ const Category = () => {
                         key={cat._id}
                     >
                         <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                            <figure><img src={cat.category_img} alt="Shoes" /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">{cat.category}</h2>
+                            <figure><img className=" w-4/5"  src={cat.category_img} alt="Shoes" /></figure>
+                            <div className="card-body text-center">
+                                <h2 className="card-title mx-auto">{cat.category}</h2>
                                 <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
+                                <div className="card-actions justify-end mx-auto">
                                     <Link to={`/category/${cat._id}`}><button  className="btn btn-primary">Buy Now</button></Link>
                                 </div>
                             </div>
