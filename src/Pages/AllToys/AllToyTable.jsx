@@ -1,9 +1,18 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const AllToyTable = ({t}) => {
+    const { user} = useContext(AuthContext);
+    const navigate = useNavigate();
+    
+    const handleUser = () =>{
+        alert("Please Login To Continue");
+        navigate('/login');
+    }
 
-    const {toy, name, price, rating, quantity, } = t;
+    const {_id, toy, name, price, rating, quantity, } = t;
 
     return (
         <tr>
@@ -13,7 +22,11 @@ const AllToyTable = ({t}) => {
             <td>{rating}</td>
             <td>{quantity}</td>
             <td className='ml-4'>
-                <Link><button className="btn btn-primary mx-auto">View Details</button></Link>
+                {
+                    user? 
+                    <Link to={`/details/${_id}`} ><button  className="btn btn-primary mx-auto">View Details</button></Link> :
+                    <button onClick={handleUser}>View Details</button>
+                }
             </td>
         </tr>
     );
