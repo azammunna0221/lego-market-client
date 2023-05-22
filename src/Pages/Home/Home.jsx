@@ -1,6 +1,7 @@
 import Banners from "./Banners";
 import Category from "./Category";
 import Gallery from "./Gallery";
+import SpotLight from "./SpotLight";
 import StayConnect from "./StayConnect";
 
 
@@ -11,6 +12,7 @@ const Home = () => {
             <Category></Category>
             <Gallery></Gallery>
             <StayConnect></StayConnect>
+            <SpotLight></SpotLight>
         </div>
     );
 };
