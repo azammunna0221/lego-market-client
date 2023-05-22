@@ -38,7 +38,7 @@ const Category = () => {
                                 <div className="card-actions justify-end mx-auto">
                                     {
                                         user?
-                                        <Link to={`/category/${cat._id}`}><button  className="btn btn-primary">Buy Now</button></Link> : 
+                                        <Link to={`/category/${cat.id}`}><button  className="btn btn-primary">Buy Now</button></Link> : 
                                         <button onClick={handleUser} className="btn btn-primary">Buy Now</button>
                                     }
                                 </div>
