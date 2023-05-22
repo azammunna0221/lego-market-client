@@ -6,7 +6,7 @@ const Category = () => {
 
     const [category, setCategory] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:3000/category")
+        fetch("https://lego-toy-market-server-azammunna0221.vercel.app/category")
             .then(res => res.json())
             .then(data => setCategory(data))
     }, [])

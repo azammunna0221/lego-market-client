@@ -17,7 +17,7 @@ const UpdateToy = () => {
         const updatedClients = { name, email, toy, url, price, rating, quantity, description };
         console.log(updatedClients);
 
-        fetch(`http://localhost:3000/clients/${singleClient._id}`,{
+        fetch(`https://lego-toy-market-server-azammunna0221.vercel.app/clients/${singleClient._id}`,{
             method: 'PUT',
             headers: {"content-type" : "application/json"},
             body: JSON.stringify(updatedClients),

@@ -38,17 +38,17 @@ const router = createBrowserRouter([
         {
             path: '/myToys',
             element: <PrivateRoutes><MyToys></MyToys></PrivateRoutes> ,
-            loader: () => fetch("http://localhost:3000/clients")
+            loader: () => fetch("https://lego-toy-market-server-azammunna0221.vercel.app/clients")
         },
         {
             path: '/updateToy/:id',
             element: <UpdateToy /> ,
-            loader: ({params}) => fetch(`http://localhost:3000/clients/${params.id}`)
+            loader: ({params}) => fetch(`https://lego-toy-market-server-azammunna0221.vercel.app/clients/${params.id}`)
         },
         {
             path: '/category',
             element: <Category></Category>,
-            loader: fetch('http://localhost:3000/category')
+            loader: fetch('https://lego-toy-market-server-azammunna0221.vercel.app/category')
         }
       ]
     },

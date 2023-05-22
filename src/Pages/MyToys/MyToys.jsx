@@ -11,7 +11,7 @@ const MyToys = () => {
     const handleDelete = id =>{
         const proceed = confirm("Do you want to remove this item?")
         if(proceed){
-            fetch(`http://localhost:3000/clients/${id}`,
+            fetch(`https://lego-toy-market-server-azammunna0221.vercel.app/clients/${id}`,
             {
                 method: 'DELETE',
             })
