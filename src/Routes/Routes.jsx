@@ -10,6 +10,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import Category from "../Pages/Home/Category";
 import ErrorPage from "../Pages/Error/ErrorPage";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,8 @@ const router = createBrowserRouter([
         },
         {
             path: '/allToys',
-            element: <PrivateRoutes><AllToys></AllToys></PrivateRoutes>
+            element: <PrivateRoutes><AllToys></AllToys></PrivateRoutes>,
+            loader: () => fetch ("https://lego-toy-market-server-azammunna0221.vercel.app/clients")
         },
         {
             path: '/addToy',
@@ -51,6 +53,10 @@ const router = createBrowserRouter([
             path: '/category',
             element: <Category></Category>,
             loader: fetch('https://lego-toy-market-server-azammunna0221.vercel.app/category')
+        },
+        {
+            path: '/blogs',
+            element: <Blogs></Blogs>,
         }
       ]
     },
