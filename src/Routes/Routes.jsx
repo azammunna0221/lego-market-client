@@ -11,6 +11,7 @@ import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import Category from "../Pages/Home/Category";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import Blogs from "../Pages/Blogs/Blogs";
+import SingleCategory from "../Pages/Home/SingleCategory";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
         {
             path: '/blogs',
             element: <Blogs></Blogs>,
+        },
+        {
+            path: '/category/:id',
+            element: <SingleCategory></SingleCategory>,
+            loader: ({params}) => fetch(`https://lego-toy-market-server-azammunna0221.vercel.app/category/${params.id}`)
         }
       ]
     },

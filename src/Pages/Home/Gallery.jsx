@@ -7,7 +7,7 @@ const Gallery = () => {
                 <h2 className=" text-4xl font-extrabold">Whats Hot Now!</h2>
                 <p className=" text-base font-mono">Whats more fun than watching and playing along? Shop characters and toys from their favorite shows.</p>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-col-1 md:grid-cols-3 gap-4">
                 <div className="card card-compact w-96 bg-base-100 shadow-xl">
                     <figure className="object-cover h-48 w-96">
                         <img src="https://www.lego.com/cdn/cs/set/assets/blt2b163a472ef2e61f/21338.png?format=webply&fit=bounds&quality=70&width=800&height=800&dpr=1.5" alt="Shoes" /></figure>
